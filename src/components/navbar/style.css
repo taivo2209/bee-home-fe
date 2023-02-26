@@ -1,0 +1,12 @@
+.navbar{
+    width: 1400px;
+}
+
+.button-1{
+    background-color: white;
+    color: black;
+}
+
+.button-2{
+    border: 1px solid lightgray;
+}

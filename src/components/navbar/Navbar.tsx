@@ -1,7 +1,8 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, IconButton, Stack, Button } from '@mui/material'
 import HouseIcon from '@mui/icons-material/House';
-import './style.css'
+import './styles.css'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -20,7 +21,9 @@ function Navbar() {
             <Stack direction={'row'} spacing={2}>
                 <Button color="inherit" className='button-1'>Aplus HOME</Button>
                 <Button color="inherit" className='button-1'>Aplus SHARE</Button>
-                <Button color="inherit" className='button-2'>LOGIN</Button>
+                <Button color="inherit" className='button-2'>
+                  <Link to={'/login'}>LOGIN</Link>
+                </Button>
                 <Button color="inherit" className='button-2'>FOR HOUSE OWNER</Button>
             </Stack>
           </Toolbar>

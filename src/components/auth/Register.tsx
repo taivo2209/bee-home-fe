@@ -11,10 +11,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 
 function Copyright(props: any) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
       {'Copyright © '}
       <Link color="inherit" href="/">
         Bee Home
@@ -27,14 +33,27 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignUp() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+function Register() {
+  const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
+  
+    try {
+      const res = await axios.post('http://localhost:5000/customer/auth/register', {
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName'),
+        phoneNumber: data.get('phoneNumber'),
+        email: data.get('email'),
+        password: data.get('password'),
+        birthday: data.get('birthday'),
+      });
+  
+      console.log(res.data);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   };
 
   return (
@@ -55,7 +74,12 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleRegister}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -76,6 +100,15 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="phoneNumber"
+                  label="Phone Number"
+                  autoComplete="phone-number"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -103,14 +136,20 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  name="phoneNumber"
-                  label="Phone Number"
-                  autoComplete="phone-number"
+                  name="birthday"
+                  label="Date of Birth"
+                  autoComplete="bday"
+                  inputProps={{
+                    pattern: '\\d{4}-\\d{2}-\\d{2}',
+                    title: 'Please enter a date in the format yyyy-mm-dd',
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
@@ -137,3 +176,5 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+export default Register

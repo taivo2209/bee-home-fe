@@ -1,16 +1,16 @@
-.navbar{
-    width: 1400px;
+.navbar {
+  width: 1400px;
 }
 
-.button-1{
-    background-color: white;
-    color: black;
+.button-1 {
+  background-color: white;
+  color: black;
 }
 
-.button-2{
-    border: 1px solid lightgray;
+.button-2 {
+  border: 1px solid lightgray;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }

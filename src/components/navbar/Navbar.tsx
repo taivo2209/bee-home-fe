@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   AppBar,
   Toolbar,
@@ -12,6 +12,11 @@ import './Navbar.css';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+  const [isHouseOwner, setIsHouseOwner] = useState<boolean>()
+
+  const handleButtonClick = (): void => {
+    setIsHouseOwner(!isHouseOwner)
+  }
   return (
     <div
       style={{
@@ -33,20 +38,16 @@ function Navbar() {
             Bee Home
           </Typography>
           <Stack direction={'row'} spacing={2}>
-            <Button color="inherit" className="button-1">
-              Aplus HOME
-            </Button>
-            <Button color="inherit" className="button-1">
-              Aplus SHARE
-            </Button>
             <Button color="inherit" className="button-2">
-              <Link to={'/login'}>LOGIN</Link>
+              {/* <Link to={'/login'}>LOGIN</Link> */}
+              <Link to={isHouseOwner ? '/loginMerchant' : '/login'}>LOGIN{isHouseOwner ? ' as Merchant' : ''}</Link>
             </Button>
-            <Button color="inherit" className="button-2">
-              <Link to={'/register'}>SIGN UP</Link>
-            </Button>
-            <Button color="inherit" className="button-2">
-              FOR HOUSE OWNER
+            <Button
+              color="inherit"
+              className="button-2"
+              onClick={handleButtonClick}
+            >
+              {isHouseOwner ? 'FOR CUSTOMER' : 'FOR HOUSE OWNER'}
             </Button>
           </Stack>
         </Toolbar>

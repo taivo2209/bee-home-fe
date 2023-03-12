@@ -29,7 +29,7 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-function Login() {
+function LoginMerchant() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<LoginData>({
@@ -40,7 +40,7 @@ function Login() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/customer/auth/login', formData);
+      const res = await axios.post('http://localhost:5000/merchant/auth/login', formData);
       console.log(res.data);
       // handle login success
       navigate('/')
@@ -72,7 +72,7 @@ function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign in as Merchant
           </Typography>
           <Box
             component="form"
@@ -136,4 +136,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginMerchant;

@@ -40,7 +40,7 @@ function Navbar() {
           <Stack direction={'row'} spacing={2}>
             <Button color="inherit" className="button-2">
               {/* <Link to={'/login'}>LOGIN</Link> */}
-              <Link to={isHouseOwner ? '/loginMerchant' : '/login'}>LOGIN{isHouseOwner ? ' as Merchant' : ''}</Link>
+              <Link to={isHouseOwner ? '/loginLessor' : '/login'}>LOGIN{isHouseOwner ? ' as Lessor' : ''}</Link>
             </Button>
             <Button
               color="inherit"

@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/auth/LoginPage';
-import LoginMerchantPage from './pages/auth/LoginMerchantPage';
+import LoginLessorPage from './pages/auth/LoginLessorPage';
 import RegisterPage from './pages/auth/RegisterPage';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/loginMerchant" element={<LoginMerchantPage />} />
+          <Route path="/loginLessor" element={<LoginLessorPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </BrowserRouter>

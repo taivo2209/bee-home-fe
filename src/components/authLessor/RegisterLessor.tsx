@@ -40,7 +40,7 @@ function Register() {
     
   
     try {
-      const res = await axios.post('http://localhost:5000/merchant/auth/register', {
+      const res = await axios.post('http://localhost:5000/Lessor/auth/register', {
         firstName: data.get('firstName'),
         lastName: data.get('lastName'),
         phoneNumber: data.get('phoneNumber'),
@@ -72,7 +72,7 @@ function Register() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up as Merchant
+            Sign up as Lessor
           </Typography>
           <Box
             component="form"

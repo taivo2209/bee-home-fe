@@ -1,10 +1,10 @@
 import React from 'react'
-import LoginMerchant from '../../components/authMerchant/LoginMerchant'
+import LoginLessor from '../../components/authLessor/LoginLessor'
 
 function LoginPage() {
   return (
     <div>
-      <LoginMerchant />
+      <LoginLessor />
     </div>
   )
 }

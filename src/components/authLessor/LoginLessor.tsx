@@ -29,7 +29,7 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-function LoginMerchant() {
+function LoginLessor() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState<LoginData>({
@@ -40,7 +40,7 @@ function LoginMerchant() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/merchant/auth/login', formData);
+      const res = await axios.post('http://localhost:5000/Lessor/auth/login', formData);
       console.log(res.data);
       // handle login success
       navigate('/')
@@ -72,7 +72,7 @@ function LoginMerchant() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in as Merchant
+            Sign in as Lessor
           </Typography>
           <Box
             component="form"
@@ -136,4 +136,4 @@ function LoginMerchant() {
   );
 }
 
-export default LoginMerchant;
+export default LoginLessor;

@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginLessor from '../../components/authLessor/LoginLessor'
+import LoginLessor from '../../containers/authLessor/LoginLessor'
 
 function LoginPage() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/navbar/Navbar';
+import Navbar from './containers/navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/auth/LoginPage';
 import LoginLessorPage from './pages/auth/LoginLessorPage';
